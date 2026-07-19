@@ -6,6 +6,7 @@
   <meta name="theme-color" content="#071027">
   <title>Lucky Draw · DGIST AI Build Week 2026</title>
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="./brand-lockup.png" as="image" type="image/png">
   <style>
     @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
 
@@ -83,28 +84,13 @@
       border-bottom: 1px solid var(--line);
     }
 
-    .brand { display: flex; align-items: center; gap: 21px; }
+    .brand { min-width: 0; line-height: 0; }
 
-    .brand-mark { width: 72px; height: 72px; flex: 0 0 auto; }
-
-    .brand-year {
-      margin: 1px 0 10px;
-      color: var(--blue-light);
-      font: 600 14px/1 var(--mono);
-      letter-spacing: .36em;
+    .brand-lockup {
+      display: block;
+      width: min(46vw, 380px);
+      height: auto;
     }
-
-    .brand-name {
-      color: var(--text);
-      font-family: var(--display);
-      font-size: clamp(22px, 2.05vw, 30px);
-      font-weight: 700;
-      line-height: 1;
-      letter-spacing: -.045em;
-      white-space: nowrap;
-    }
-
-    .brand-name span { color: var(--blue-light); }
 
     .live {
       display: inline-flex;
@@ -510,10 +496,7 @@
     @media (max-width: 700px) {
       .shell { padding: 18px 16px 26px; }
       .topbar { min-height: 78px; padding-bottom: 18px; }
-      .brand { gap: 12px; }
-      .brand-mark { width: 48px; height: 48px; }
-      .brand-year { margin-bottom: 6px; font-size: 10px; }
-      .brand-name { font-size: 18px; }
+      .brand-lockup { width: min(230px, calc(100vw - 76px)); }
       .live { font-size: 9px; }
       .live span:last-child { display: none; }
       .content { padding-top: 30px; }
@@ -540,7 +523,6 @@
     }
 
     @media (max-width: 420px) {
-      .brand-year { letter-spacing: .2em; }
       .fields { gap: 9px; }
       input { height: 45px; font-size: 17px; }
       .numbers { gap: 6px; }
@@ -551,17 +533,7 @@
   <main class="shell">
     <header class="topbar">
       <div class="brand" aria-label="DGIST AI Build Week 2026">
-        <svg class="brand-mark" viewBox="0 0 104 104" aria-hidden="true">
-          <path d="M22 82 82 22" fill="none" stroke="#5b8cff" stroke-width="3.5" stroke-linecap="round"/>
-          <rect x="12" y="72" width="26" height="26" rx="3.5" fill="#1641cf"/>
-          <rect x="39" y="45" width="26" height="26" rx="3.5" fill="#376dff"/>
-          <rect x="66" y="18" width="26" height="26" rx="3.5" fill="#1641cf"/>
-          <circle cx="89" cy="14" r="9" fill="#071027" stroke="#80b4ff" stroke-width="4.5"/>
-        </svg>
-        <div>
-          <div class="brand-year">2026</div>
-          <div class="brand-name">DGIST <span>AI Build Week</span></div>
-        </div>
+        <img class="brand-lockup" src="./brand-lockup.png" alt="2026 DGIST AI Build Week" width="660" height="138" fetchpriority="high">
       </div>
       <div class="live"><span class="live-dot"></span><span>DRAW SYSTEM READY</span></div>
     </header>
