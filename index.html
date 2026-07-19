@@ -3,28 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#070d20">
+  <meta name="theme-color" content="#071027">
   <title>Lucky Draw · DGIST AI Build Week 2026</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23070d20'/%3E%3Ccircle cx='32' cy='32' r='21' fill='%231538c9'/%3E%3Cpath d='M24 21v22h17' fill='none' stroke='%237fb4ff' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <style>
+    @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
+
     :root {
       color-scheme: dark;
-      --bg: #070d20;
-      --panel: rgba(13, 23, 55, .78);
-      --panel-strong: rgba(17, 30, 68, .94);
-      --line: rgba(127, 180, 255, .20);
-      --line-strong: rgba(127, 180, 255, .38);
-      --text: #f4f7ff;
-      --muted: #91a3cf;
-      --blue: #3b6bff;
-      --blue-light: #7fb4ff;
-      --royal: #1538c9;
+      --bg: #071027;
+      --panel: rgba(11, 22, 50, .80);
+      --panel-strong: rgba(14, 28, 62, .94);
+      --line: rgba(123, 174, 248, .21);
+      --line-strong: rgba(123, 174, 248, .40);
+      --text: #f5f7ff;
+      --muted: #8fa2cb;
+      --blue: #376dff;
+      --blue-light: #80b4ff;
+      --royal: #1641cf;
       --green: #62e6aa;
       --danger: #ff7e8b;
       --shadow: 0 30px 80px rgba(0, 5, 24, .42);
       --sans: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      --display: "Arial Narrow", "Roboto Condensed", var(--sans);
-      --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      --display: "Space Grotesk", var(--sans);
+      --mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
     }
 
     * { box-sizing: border-box; }
@@ -37,8 +39,8 @@
       color: var(--text);
       font-family: var(--sans);
       background:
-        radial-gradient(900px 620px at 77% -8%, rgba(59, 107, 255, .24), transparent 62%),
-        radial-gradient(700px 520px at 5% 96%, rgba(21, 56, 201, .16), transparent 67%),
+        radial-gradient(1080px 700px at 84% -10%, rgba(55, 109, 255, .19), transparent 62%),
+        radial-gradient(760px 560px at 3% 100%, rgba(22, 65, 207, .13), transparent 70%),
         var(--bg);
       overflow-x: hidden;
     }
@@ -48,11 +50,11 @@
       position: fixed;
       inset: 0;
       pointer-events: none;
-      opacity: .38;
+      opacity: .44;
       background-image:
-        linear-gradient(rgba(127, 180, 255, .055) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(127, 180, 255, .055) 1px, transparent 1px);
-      background-size: 48px 48px;
+        linear-gradient(rgba(128, 180, 255, .050) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(128, 180, 255, .050) 1px, transparent 1px);
+      background-size: 68px 68px;
       mask-image: linear-gradient(to bottom, #000, transparent 88%);
     }
 
@@ -66,7 +68,7 @@
       width: min(1440px, 100%);
       min-height: 100vh;
       margin: 0 auto;
-      padding: 28px clamp(20px, 3.2vw, 52px) 34px;
+      padding: 32px clamp(24px, 3.6vw, 58px) 38px;
       display: flex;
       flex-direction: column;
     }
@@ -76,26 +78,30 @@
       align-items: center;
       justify-content: space-between;
       gap: 20px;
-      min-height: 52px;
-      padding-bottom: 22px;
+      min-height: 106px;
+      padding-bottom: 30px;
       border-bottom: 1px solid var(--line);
     }
 
-    .brand { display: flex; align-items: center; gap: 13px; }
+    .brand { display: flex; align-items: center; gap: 21px; }
 
-    .brand-mark { width: 42px; height: 42px; flex: 0 0 auto; }
+    .brand-mark { width: 72px; height: 72px; flex: 0 0 auto; }
 
     .brand-year {
-      margin-bottom: 2px;
+      margin: 1px 0 10px;
       color: var(--blue-light);
-      font: 700 9px/1 var(--mono);
-      letter-spacing: .32em;
+      font: 600 14px/1 var(--mono);
+      letter-spacing: .36em;
     }
 
     .brand-name {
-      font-size: 15px;
-      font-weight: 760;
-      letter-spacing: -.015em;
+      color: var(--text);
+      font-family: var(--display);
+      font-size: clamp(22px, 2.05vw, 30px);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -.045em;
+      white-space: nowrap;
     }
 
     .brand-name span { color: var(--blue-light); }
@@ -120,10 +126,10 @@
     .content {
       flex: 1;
       display: grid;
-      grid-template-columns: minmax(260px, 310px) minmax(0, 1fr);
-      gap: clamp(28px, 4.5vw, 72px);
+      grid-template-columns: minmax(330px, 390px) minmax(0, 1fr);
+      gap: clamp(34px, 4.4vw, 68px);
       align-items: stretch;
-      padding: clamp(30px, 5vh, 62px) 0 24px;
+      padding: clamp(38px, 5.5vh, 68px) 0 24px;
     }
 
     .sidebar { display: flex; flex-direction: column; }
@@ -131,15 +137,15 @@
     .eyebrow {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 16px;
       color: var(--blue-light);
-      font: 700 11px/1 var(--mono);
-      letter-spacing: .18em;
+      font: 600 14px/1 var(--mono);
+      letter-spacing: .22em;
     }
 
     .eyebrow::before {
       content: "";
-      width: 23px;
+      width: 50px;
       height: 1px;
       background: currentColor;
     }
@@ -147,16 +153,17 @@
     h1 {
       margin: 18px 0 14px;
       font-family: var(--display);
-      font-size: clamp(58px, 6.2vw, 94px);
-      line-height: .84;
-      letter-spacing: -.065em;
+      font-size: clamp(82px, 8vw, 122px);
+      font-weight: 700;
+      line-height: .79;
+      letter-spacing: -.075em;
       text-transform: uppercase;
     }
 
     h1 span {
       display: block;
       color: transparent;
-      -webkit-text-stroke: 1px rgba(127, 180, 255, .72);
+      -webkit-text-stroke: 1.5px rgba(128, 180, 255, .76);
     }
 
     .intro {
@@ -168,6 +175,7 @@
     }
 
     .settings {
+      min-width: 0;
       padding: 20px;
       border: 1px solid var(--line);
       border-radius: 18px;
@@ -191,9 +199,9 @@
 
     .lock-note { color: var(--muted); font-size: 11px; }
 
-    .fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 
-    label { display: block; color: var(--muted); font-size: 12px; }
+    label { min-width: 0; display: block; color: var(--muted); font-size: 12px; }
 
     label span { display: block; margin-bottom: 8px; }
 
@@ -380,7 +388,7 @@
         inset -14px -18px 30px rgba(0, 5, 28, .25),
         0 15px 34px rgba(0, 8, 40, .36),
         0 0 0 5px rgba(59, 107, 255, .045);
-      font: 800 clamp(27px, 3vw, 43px)/1 var(--mono);
+      font: 700 clamp(27px, 3vw, 43px)/1 var(--mono);
       letter-spacing: -.08em;
       transform: translateZ(0);
     }
@@ -494,20 +502,25 @@
       .content { grid-template-columns: 1fr; gap: 28px; }
       .sidebar { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, .85fr); gap: 28px; align-items: end; }
       .intro { max-width: 520px; margin-bottom: 0; }
-      h1 { font-size: clamp(60px, 12vw, 96px); }
+      h1 { font-size: clamp(78px, 13.5vw, 112px); }
       .history-wrap { display: none; }
       .draw-board { min-height: 390px; }
     }
 
     @media (max-width: 700px) {
       .shell { padding: 18px 16px 26px; }
-      .topbar { padding-bottom: 16px; }
-      .brand-mark { width: 36px; height: 36px; }
-      .brand-name { font-size: 13px; }
+      .topbar { min-height: 78px; padding-bottom: 18px; }
+      .brand { gap: 12px; }
+      .brand-mark { width: 48px; height: 48px; }
+      .brand-year { margin-bottom: 6px; font-size: 10px; }
+      .brand-name { font-size: 18px; }
       .live { font-size: 9px; }
+      .live span:last-child { display: none; }
       .content { padding-top: 30px; }
       .sidebar { display: block; }
-      h1 { margin-top: 16px; font-size: clamp(54px, 19vw, 76px); }
+      .eyebrow { font-size: 11px; gap: 11px; }
+      .eyebrow::before { width: 28px; }
+      h1 { margin-top: 19px; font-size: clamp(68px, 22vw, 92px); }
       .intro { margin-bottom: 22px; font-size: 13px; }
       .settings { padding: 16px; }
       .stage-meta { border-radius: 12px 12px 0 0; }
@@ -528,8 +541,6 @@
 
     @media (max-width: 420px) {
       .brand-year { letter-spacing: .2em; }
-      .brand-name { font-size: 12px; }
-      .live span:last-child { display: none; }
       .fields { gap: 9px; }
       input { height: 45px; font-size: 17px; }
       .numbers { gap: 6px; }
@@ -540,12 +551,12 @@
   <main class="shell">
     <header class="topbar">
       <div class="brand" aria-label="DGIST AI Build Week 2026">
-        <svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true">
-          <line x1="22" y1="78" x2="78" y2="22" stroke="#3b6bff" stroke-width="4" stroke-linecap="round"/>
-          <rect x="15" y="69" width="22" height="22" rx="3" fill="#1538c9"/>
-          <rect x="39" y="45" width="22" height="22" rx="3" fill="#3b6bff"/>
-          <rect x="63" y="21" width="22" height="22" rx="3" fill="#1538c9"/>
-          <circle cx="83" cy="17" r="7" fill="none" stroke="#7fb4ff" stroke-width="4"/>
+        <svg class="brand-mark" viewBox="0 0 104 104" aria-hidden="true">
+          <path d="M22 82 82 22" fill="none" stroke="#5b8cff" stroke-width="3.5" stroke-linecap="round"/>
+          <rect x="12" y="72" width="26" height="26" rx="3.5" fill="#1641cf"/>
+          <rect x="39" y="45" width="26" height="26" rx="3.5" fill="#376dff"/>
+          <rect x="66" y="18" width="26" height="26" rx="3.5" fill="#1641cf"/>
+          <circle cx="89" cy="14" r="9" fill="#071027" stroke="#80b4ff" stroke-width="4.5"/>
         </svg>
         <div>
           <div class="brand-year">2026</div>
